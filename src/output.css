@@ -7,6 +7,8 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --font-weight-bold: 700;
+    --font-weight-black: 900;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -160,42 +162,29 @@
   }
 }
 @layer utilities {
+  .m-auto {
+    margin: auto;
+  }
   .flex {
     display: flex;
   }
   .hidden {
     display: none;
   }
-  .h-\[40px\] {
-    height: 40px;
-  }
-  .h-\[60px\] {
-    height: 60px;
-  }
-  .w-\[21px\] {
-    width: 21px;
-  }
-  .w-\[40px\] {
-    width: 40px;
-  }
-  .w-\[60px\] {
-    width: 60px;
-  }
   .w-\[150px\] {
     width: 150px;
   }
-  .w-\[200px\] {
-    width: 200px;
+  .w-\[250px\] {
+    width: 250px;
+  }
+  .w-\[350px\] {
+    width: 350px;
   }
   .justify-between {
     justify-content: space-between;
   }
   .gap-\[30px\] {
     gap: 30px;
-  }
-  .border {
-    border-style: var(--tw-border-style);
-    border-width: 1px;
   }
   .border-\[1px\] {
     border-style: var(--tw-border-style);
@@ -204,11 +193,24 @@
   .p-\[10px\] {
     padding: 10px;
   }
-  .p-\[15px\] {
-    padding: 15px;
-  }
   .p-\[20px\] {
     padding: 20px;
+  }
+  .text-center {
+    text-align: center;
+  }
+  .text-justify {
+    text-align: justify;
+  }
+  .text-\[15px\] {
+    font-size: 15px;
+  }
+  .text-\[30px\] {
+    font-size: 30px;
+  }
+  .font-bold {
+    --tw-font-weight: var(--font-weight-bold);
+    font-weight: var(--font-weight-bold);
   }
   .lg\:block {
     @media (width >= 64rem) {
@@ -241,10 +243,15 @@
   inherits: false;
   initial-value: solid;
 }
+@property --tw-font-weight {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-border-style: solid;
+      --tw-font-weight: initial;
     }
   }
 }
